@@ -17,7 +17,13 @@ export default {
   components: { AppHeader, ContactList, AddContactForm },
   setup() {
 
-    const contacts = ref(JSON.parse(localStorage.getItem('contacts')) || []); // Load contacts from localStorage
+    // Load contacts from localStorage and predefined contacts
+    const contacts = ref(JSON.parse(localStorage.getItem('contacts')) || [
+      { id: 1, name: 'Mario Rossi', phone: '3331234567' },
+      { id: 2, name: 'Anna Bianchi', phone: '3209876543' },
+    ]);
+
+
     const search = ref(''); // Search contact query
 
     // Filtered contacts for search query
