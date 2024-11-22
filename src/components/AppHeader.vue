@@ -4,8 +4,8 @@
       <input
         type="text"
         placeholder="Search contacts..."
-        v-model="search"
-        @input="$emit('update-search', search)"
+        v-model="searchInput"
+        @input="$emit('update-search', searchInput)"
       />
     </header>
   </template>
@@ -14,10 +14,11 @@
   import { ref } from 'vue';
   
   export default {
+    props: ['search'],
     emits: ['update-search'],
-    setup(_, { emit }) {
-      const search = ref('');
-      return { search };
+    setup(props, { emit }) {
+      const searchInput = ref(props.search || '');
+      return { searchInput };
     },
   };
   </script>

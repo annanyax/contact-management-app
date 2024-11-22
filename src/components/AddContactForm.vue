@@ -19,6 +19,10 @@
       
   
       const addContact = () => {
+        if (!name.value || !phone.value) {
+        error.value = 'Both fields are required';
+        return;
+      }
           emit('add-contact', { id: Date.now(), name: name.value, phone: phone.value });
           name.value = '';
           phone.value = '';

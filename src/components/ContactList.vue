@@ -1,6 +1,6 @@
 <template>
     <ul>
-      <li v-for="contact in filteredContacts" :key="contact.id">
+      <li v-for="contact in contacts" :key="contact.id">
         {{ contact.name }} - {{ contact.phone }}
       </li>
     </ul>
@@ -10,16 +10,12 @@
   import { computed } from 'vue';
   
   export default {
-    props: ['contacts', 'saerchQuery'],
+    props: ['contacts'],
     setup(props) {
-      const filteredContacts = computed(() =>
-        props.contacts.filter(contact =>
-          contact.name.toLowerCase().includes(props.searchQuery.toLowerCase())
-        )
-      );
-      return { filteredContacts };
+      return { contacts: computed(() => props.contacts) };
     },
   };
+  
   </script>
   
   <style scoped></style>
