@@ -1,10 +1,13 @@
 <template>
+ <div>
+    <h2>Add Contact Form</h2>
     <form @submit.prevent="addContact">
       <input type="text" v-model="name" placeholder="Name" />
       <input type="text" v-model="phone" placeholder="Phone Number" />
       <button type="submit">Add Contact</button>
       <p v-if="error">{{ error }}</p>
     </form>
+ </div>
   </template>
   
   <script>
