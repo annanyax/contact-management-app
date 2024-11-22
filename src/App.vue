@@ -21,8 +21,11 @@ export default {
     const search = ref(''); // Search contact query
 
     // Filtered contacts for search query
-    const filteredContacts = ref([]);
-    filteredContacts.value = contacts.value;
+    const filteredContacts = computed(() =>
+      contacts.value.filter(contact =>
+        contact.name.toLowerCase().includes(search.value.toLowerCase())
+      )
+    );
 
     // Add a new contact
     const addContact = (contact) => {

@@ -17,7 +17,7 @@
     emits: ['update-search'],
     setup(_, { emit }) {
       const search = ref('');
-      return { saerch };
+      return { search };
     },
   };
   </script>
